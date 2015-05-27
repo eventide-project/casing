@@ -19,12 +19,3 @@ describe "Underscore Case" do
     assert(camel_case == 'some_string')
   end
 end
-
-describe "Case" do
-  it "Converts from Class to under_score" do
-    cls = SomeClass
-    camel_case = Casing::Underscore.! cls
-    assert(camel_case == 'some_class')
-  end
-end
-
