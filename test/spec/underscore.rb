@@ -13,6 +13,12 @@ describe "Underscore Case" do
     assert(camel_case == 'some_string')
   end
 
+  it "Converts symbols to strings" do
+    sym = :some_string
+    camel_case = Casing::Underscore.! sym
+    assert(camel_case == 'some_string')
+  end
+
   it "Has no effect on under_score" do
     str = 'some_string'
     camel_case = Casing::Underscore.! str

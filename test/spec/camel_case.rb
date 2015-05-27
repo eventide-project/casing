@@ -13,6 +13,12 @@ describe "Camel Case" do
     assert(camel_case == 'someString')
   end
 
+  it "Converts symbols to strings" do
+    sym = :someString
+    camel_case = Casing::Camel.! sym
+    assert(camel_case == 'someString')
+  end
+
   it "Has no effect on camelCase" do
     str = 'someString'
     camel_case = Casing::Camel.! str

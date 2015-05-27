@@ -13,6 +13,12 @@ describe "Pascal Case" do
     assert(camel_case == 'SomeString')
   end
 
+  it "Converts symbols to strings" do
+    sym = :SomeString
+    camel_case = Casing::Pascal.! sym
+    assert(camel_case == 'SomeString')
+  end
+
   it "Has no effect on PascalCase" do
     str = 'SomeString'
     camel_case = Casing::Pascal.! str
