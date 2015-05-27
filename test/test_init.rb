@@ -5,7 +5,7 @@ ENV['LOG_LEVEL'] ||= 'trace'
 puts RUBY_DESCRIPTION
 
 require_relative '../init.rb'
-# require_relative './fixtures.rb'
+require_relative './fixtures.rb'
 require 'runner'
 require 'fixture'
 
