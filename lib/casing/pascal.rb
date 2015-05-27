@@ -1,5 +1,5 @@
 module Casing
-  module Camel
+  module Pascal
     def self.!(str)
       str.
         to_s.

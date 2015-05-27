@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'casing'
-  s.summary = ''
+  s.summary = 'Change the case of strings, symbols, and hash keys'
   s.version = '0.0.0'
   s.authors = ['']
   s.require_paths = ['lib']
