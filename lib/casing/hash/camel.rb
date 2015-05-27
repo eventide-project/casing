@@ -5,33 +5,19 @@ module Casing
         camel_keys(hash)
       end
 
-      def self.camel_keys(hash)
-        case value
-          when Array
-            value.map { |v| camel_keys(hash) }
-          when Hash
-            Hash[value.map { |k, v| [camel_key(k), camel_keys(v)] }]
+      def self.camel_keys(val)
+        case val
+          when ::Array
+            val.map { |v| camel_keys(v) }
+          when ::Hash
+            ::Hash[val.map { |k, v| [camel_case(k), camel_keys(v)] }]
           else
-            value
+            val
         end
       end
 
-      def camel_key(k)
-        if k.is_a? Symbol
-          camelize(k.to_s, first_upper).to_sym
-        elsif k.is_a? String
-          camelize(k, first_upper)
-        else
-          k # Awrence can't camelize anything except strings and symbols
-        end
-      end
-
-      def camelize(snake_word, first_upper = true)
-        if first_upper
-          snake_word.to_s.gsub(/\/(.?)/) { "::" + $1.upcase }.gsub(/(^|_)(.)/) { $2.upcase }
-        else
-          snake_word.chars.first + camelize(snake_word)[1..-1]
-        end
+      def self.camel_case(val)
+        Casing::Camel.! val
       end
     end
   end

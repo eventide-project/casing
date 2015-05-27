@@ -1,27 +1,33 @@
-require_relative 'spec_init'
+require_relative '../spec_init'
 
-# describe "Camel Case Hash Keys" do
-#   it "Converts from under_score to camelCase" do
-#     str = 'some_string'
-#     camel_case = Casing::Camel.! str
-#     assert(camel_case == 'someString')
-#   end
+module AssertCamelKeys
+  def self.!(hash)
+    camel_keys? hash
+  end
 
-#   it "Converts from PascalCase to camelCase" do
-#     str = 'SomeString'
-#     camel_case = Casing::Camel.! str
-#     assert(camel_case == 'someString')
-#   end
+  def self.camel_keys?(val)
+    case val
+      when ::Array
+        val.map { |v| camel_keys?(v) }
+      when ::Hash
+        ::Hash[val.map { |k, v| [camel_case?(k), camel_keys?(v)] }]
+      else
+        val
+    end
+  end
 
-#   it "Has no effect on camelCase" do
-#     str = 'someString'
-#     camel_case = Casing::Camel.! str
-#     assert(camel_case == 'someString')
-#   end
-# end
+  def self.camel_case?(val)
+    unless val.match /^[a-z]+([A-Z][a-z]+)+/
+      raise "#{val} is not camel cased"
+    end
+  end
+end
 
-hash = Fixtures.hash
+describe "Camel Case Hash Keys" do
+  it "Converts keys to camelCase strings" do
+    hash = Fixtures.hash
+    camel_key_hash = Casing::Hash::Camel.! hash
 
-camel_key_hash = Casing::Hash::Camel.! hash
-
-puts camel_key_hash.inspect
+    AssertCamelKeys.! camel_key_hash
+  end
+end

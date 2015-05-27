@@ -1,6 +1,3 @@
-class SomeClass
-end
-
 module Fixtures
   def self.hash
     {
@@ -15,10 +12,8 @@ module Fixtures
         :NestedPascalKey => 'nested pascal value'
       },
       nested_array: [
-        array_nested_hash_1: {
-          nested_key_1: 'nested value 1',
-          nested_key_2: 'nested value 2'
-        }
+        { array_nested_hash_1: 'nested value 1' },
+        { array_nested_hash_2: 'nested value 2' }
       ]
     }
   end

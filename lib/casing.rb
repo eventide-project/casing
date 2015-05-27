@@ -1,3 +1,5 @@
 require 'casing/pascal'
 require 'casing/camel'
 require 'casing/underscore'
+require 'casing/hash/camel'
+require 'casing/hash/underscore'
