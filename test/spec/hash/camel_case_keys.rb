@@ -10,7 +10,7 @@ module AssertCamelKeys
       when ::Array
         val.map { |v| camel_keys?(v) }
       when ::Hash
-        ::Hash[val.map { |k, v| [camel_case?(k), camel_keys?(v)] }]
+        val.map { |k, v| camel_case?(k); camel_keys?(v) }
       else
         val
     end

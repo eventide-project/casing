@@ -10,7 +10,7 @@ module AssertUnderscoreKeys
       when ::Array
         val.map { |v| underscore_keys?(v) }
       when ::Hash
-        ::Hash[val.map { |k, v| [underscore_case?(k), underscore_keys?(v)] }]
+        val.map { |k, v| underscore_case?(k); underscore_keys?(v) }
       else
         val
     end
