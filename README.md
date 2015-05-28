@@ -86,3 +86,7 @@ camel_hash = Casing::Hash::Underscore.! h
   ]
 }
 ```
+
+## License
+
+The `casing` library is released under the [MIT License](https://github.com/obsidian-btc/casing/blob/master/MIT-License.txt).
