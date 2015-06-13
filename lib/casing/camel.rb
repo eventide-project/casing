@@ -1,10 +1,19 @@
 module Casing
   module Camel
-    def self.!(str)
-      str
-        .to_s
-        .chars.first.downcase +
-          Pascal.!(str)[1..-1]
+    def self.!(val, convert_values: nil)
+      case val
+        when ::Array
+          Array.!(val, convert_values: convert_values.nil? ? false : convert_values)
+
+        when ::String
+          String.!(val, convert_values: convert_values.nil? ? true : convert_values)
+
+        when ::Symbol
+          String.!(val, convert_values: convert_values.nil? ? true : convert_values)
+
+        else
+          val
+      end
     end
   end
 end
