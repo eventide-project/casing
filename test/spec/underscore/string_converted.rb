@@ -1,13 +1,13 @@
 require_relative '../spec_init'
 
 describe "String Converted to Underscore Case" do
-  it "Converts from PascalCase to underscore_case" do
+  it "Converts from PascalCase to underscore case" do
     str = 'SomeString'
     converted = Casing::Underscore.! str
     assert(converted == 'some_string')
   end
 
-  it "Converts from camelCase to underscore_case" do
+  it "Converts from camelCase to underscore case" do
     str = 'someString'
     converted = Casing::Underscore.! str
     assert(converted == 'some_string')
@@ -19,7 +19,7 @@ describe "String Converted to Underscore Case" do
     assert(converted == 'some_string')
   end
 
-  it "Has no effect on underscore_case" do
+  it "Has no effect on underscore case" do
     str = 'some_string'
     converted = Casing::Underscore.! str
     assert(converted == 'some_string')
