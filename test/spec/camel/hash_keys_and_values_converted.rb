@@ -19,7 +19,7 @@ module AssertCamel
   def self.camel_case?(val)
     val.split.each do |v|
       unless v.match /^([a-z]+([A-Z][a-z]+)+)|[a-z]+/
-        raise "#{val} is not camel cased"
+        raise "#{v} is not camel cased"
       end
     end
   end
