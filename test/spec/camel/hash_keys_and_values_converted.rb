@@ -25,7 +25,7 @@ module AssertCamel
   end
 end
 
-describe "Camel Case Hash Keys" do
+describe "Hash Keys and Values Converted to Camel Case" do
   it "Converts keys and values to camelCase strings" do
     hash = Fixtures.hash
     camel_hash = Casing::Camel.! hash, convert_values: true

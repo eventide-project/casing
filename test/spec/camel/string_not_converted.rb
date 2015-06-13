@@ -1,6 +1,6 @@
 require_relative '../spec_init'
 
-describe "String not Converted" do
+describe "String not Converted to Camel Case" do
   it "Does not convert from under_score to camelCase" do
     str = 'some_string'
     converted = Casing::Camel.! str, convert_values: false

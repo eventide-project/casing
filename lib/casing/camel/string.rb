@@ -9,7 +9,7 @@ module Casing
         val
           .to_s
           .chars.first.downcase +
-            Pascal.!(val)[1..-1]
+            Pascal::String.!(val)[1..-1]
       end
     end
   end
