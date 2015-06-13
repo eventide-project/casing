@@ -1,6 +1,6 @@
 require_relative '../spec_init'
 
-describe "Array of values not converted" do
+describe "Array of Values not Converted to Camel Case" do
   values = [
     'underscore_value',
     'PascalValue',

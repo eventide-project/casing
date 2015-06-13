@@ -1,6 +1,6 @@
 require_relative '../spec_init'
 
-describe "Array of values converted" do
+describe "Array of Values Converted to Camel Case" do
   values = [
     'underscore_value',
     'PascalValue',
@@ -23,11 +23,11 @@ describe "Array of values converted" do
     assert(camel_values[2] == 'camelValue')
   end
 
-  specify "Separate words are converted" do
+  specify "Separate words are converted to lower case" do
     assert(camel_values[3] == 'separate words')
   end
 
-  specify "Camel cased separate words remain camel cased" do
+  specify "Lower case separate words remain lower case" do
     assert(camel_values[4] == 'some words')
   end
 end

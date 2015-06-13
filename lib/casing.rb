@@ -9,4 +9,5 @@ require 'casing/pascal/string'
 require 'casing/pascal'
 
 require 'casing/underscore/string'
+require 'casing/underscore/array'
 require 'casing/underscore'

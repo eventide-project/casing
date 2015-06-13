@@ -5,8 +5,8 @@ module Casing
         # when ::Hash
         #   Hash.!(val, convert_values: convert_values)
 
-        # when ::Array
-        #   Array.!(val, convert_values: convert_values)
+        when ::Array
+          Array.!(val, convert_values: convert_values)
 
         when ::String
           String.!(val, convert_values: convert_values)
