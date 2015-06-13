@@ -3,16 +3,16 @@ module Casing
     def self.!(val, convert_values: nil)
       case val
         when ::Hash
-          Hash.!(val, convert_values: convert_values.nil? ? false : convert_values)
+          Hash.!(val, convert_values: convert_values)
 
         when ::Array
-          Array.!(val, convert_values: convert_values.nil? ? false : convert_values)
+          Array.!(val, convert_values: convert_values)
 
         when ::String
-          String.!(val, convert_values: convert_values.nil? ? true : convert_values)
+          String.!(val, convert_values: convert_values)
 
         when ::Symbol
-          String.!(val, convert_values: convert_values.nil? ? true : convert_values)
+          String.!(val, convert_values: convert_values)
 
         else
           val
