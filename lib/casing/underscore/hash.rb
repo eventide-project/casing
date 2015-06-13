@@ -1,6 +1,6 @@
 module Casing
-  module Hash
-    module Underscore
+  module Underscore
+    module Hash
       def self.!(hash)
         underscore_keys(hash)
       end

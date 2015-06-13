@@ -1,6 +1,6 @@
-require_relative 'spec_init'
+require_relative '../spec_init'
 
-describe "Pascal Case" do
+describe "String Converted to Pascal Case" do
   it "Converts from under_score to PascalCase" do
     str = 'some_string'
     converted = Casing::Pascal.! str

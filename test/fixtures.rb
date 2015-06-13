@@ -12,8 +12,8 @@ module Fixtures
         :NestedPascalKey => 'nested pascal value'
       },
       nested_array: [
-        { array_nested_hash_1: 'nested value 1' },
-        { array_nested_hash_2: 'nested value 2' }
+        { array_nested_hash_a: 'nested value a' },
+        { array_nested_hash_b: 'nested value b' }
       ]
     }
   end
