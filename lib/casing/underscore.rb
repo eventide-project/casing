@@ -1,13 +1,22 @@
 module Casing
   module Underscore
-    def self.!(str)
-      str
-        .to_s
-        .gsub(/::/, '/')
-        .gsub(/([A-Z]+)([A-Z][a-z])/, '\1_\2')
-        .gsub(/([a-z\d])([A-Z])/, '\1_\2')
-        .tr('-', '_')
-        .downcase
+    def self.!(val, convert_values: nil)
+      case val
+        # when ::Hash
+        #   Hash.!(val, convert_values: convert_values)
+
+        # when ::Array
+        #   Array.!(val, convert_values: convert_values)
+
+        when ::String
+          String.!(val, convert_values: convert_values)
+
+        when ::Symbol
+          String.!(val, convert_values: convert_values)
+
+        else
+          val
+      end
     end
   end
 end
