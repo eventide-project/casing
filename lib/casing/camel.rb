@@ -2,6 +2,9 @@ module Casing
   module Camel
     def self.!(val, convert_values: nil)
       case val
+        when ::Hash
+          Hash.!(val, convert_values: convert_values.nil? ? false : convert_values)
+
         when ::Array
           Array.!(val, convert_values: convert_values.nil? ? false : convert_values)
 

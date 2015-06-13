@@ -1,6 +1,6 @@
 require_relative '../spec_init'
 
-describe "Camel Case" do
+describe "String Converted" do
   it "Converts from under_score to camelCase" do
     str = 'some_string'
     converted = Casing::Camel.! str
