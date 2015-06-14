@@ -2,8 +2,8 @@ module Casing
   module Underscore
     def self.!(val, convert_values: nil)
       case val
-        # when ::Hash
-        #   Hash.!(val, convert_values: convert_values)
+        when ::Hash
+          Hash.!(val, convert_values: convert_values)
 
         when ::Array
           Array.!(val, convert_values: convert_values)

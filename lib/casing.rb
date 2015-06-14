@@ -10,4 +10,5 @@ require 'casing/pascal'
 
 require 'casing/underscore/string'
 require 'casing/underscore/array'
+require 'casing/underscore/hash'
 require 'casing/underscore'
