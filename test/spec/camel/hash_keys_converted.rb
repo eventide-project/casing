@@ -1,7 +1,7 @@
 require_relative '../spec_init'
 
 module AssertCamelKeys
-  def self.!(hash)
+  def self.call(hash)
     camel_keys? hash
   end
 
@@ -26,8 +26,8 @@ end
 describe "Hash Keys Converted to Camel Case" do
   it "Converts keys to camel case strings" do
     hash = Fixtures.hash
-    camel_hash = Casing::Camel.! hash
+    camel_hash = Casing::Camel.(hash)
 
-    AssertCamelKeys.! camel_hash
+    AssertCamelKeys.(camel_hash)
   end
 end

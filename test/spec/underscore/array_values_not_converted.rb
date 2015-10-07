@@ -9,7 +9,7 @@ describe "Array of Values not Converted to Underscore Case" do
     'some words'
   ]
 
-  underscore_values = Casing::Underscore.! values, convert_values: false
+  underscore_values = Casing::Underscore.(values, convert_values: false)
 
   specify "Values remain unchanged" do
     underscore_values.each_with_index do |v, i|

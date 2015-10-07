@@ -26,7 +26,7 @@ h = {
   ]
 }
 
-camel_hash = Casing::Hash::Camel.! h
+camel_hash = Casing::Hash::Camel.(h)
 
 # => {
   "symbolKey" => "symbol value",
@@ -68,7 +68,7 @@ h = {
   ]
 }
 
-camel_hash = Casing::Hash::Underscore.! h
+camel_hash = Casing::Hash::Underscore.(h)
 
 # => {
   "symbol_key" => "symbol value",

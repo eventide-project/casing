@@ -9,7 +9,7 @@ describe "Array of Values not Converted to Camel Case" do
     'some words'
   ]
 
-  camel_values = Casing::Camel.! values, convert_values: false
+  camel_values = Casing::Camel.(values, convert_values: false)
 
   specify "Values remain unchanged" do
     camel_values.each_with_index do |v, i|
