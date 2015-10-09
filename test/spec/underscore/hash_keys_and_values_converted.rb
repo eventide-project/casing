@@ -1,7 +1,7 @@
 require_relative '../spec_init'
 
 module AssertUnderscore
-  def self.!(hash)
+  def self.call(hash)
     underscore_keys? hash
   end
 
@@ -28,8 +28,8 @@ end
 describe "Hash Keys and Values Converted to Underscore Case" do
   it "Converts keys to underscore case strings" do
     hash = Fixtures.hash
-    underscore_hash = Casing::Underscore.! hash, convert_values: true
+    underscore_hash = Casing::Underscore.(hash, convert_values: true)
 
-    AssertUnderscore.! underscore_hash
+    AssertUnderscore.(underscore_hash)
   end
 end

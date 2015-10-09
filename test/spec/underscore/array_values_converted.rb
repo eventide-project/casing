@@ -9,7 +9,7 @@ describe "Array of Values Converted to Underscore Case" do
     'some words'
   ]
 
-  underscore_values = Casing::Underscore.! values, convert_values: true
+  underscore_values = Casing::Underscore.(values, convert_values: true)
 
   specify "Underscore case remains underscore cased" do
     assert(underscore_values[0] == 'underscore_value')

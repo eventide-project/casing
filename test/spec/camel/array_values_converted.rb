@@ -9,7 +9,7 @@ describe "Array of Values Converted to Camel Case" do
     'some words'
   ]
 
-  camel_values = Casing::Camel.! values, convert_values: true
+  camel_values = Casing::Camel.(values, convert_values: true)
 
   specify "Underscore case value is converted to camel case" do
     assert(camel_values[0] == 'underscoreValue')
