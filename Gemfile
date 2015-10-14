@@ -1,12 +1,8 @@
-require './prox_gem'
-
-prox_gem 'clock'
-prox_gem 'attribute'
-prox_gem 'subst_attr'
-prox_gem 'dependency'
-prox_gem 'telemetry_logger'
-prox_gem 'runner'
-prox_gem 'fixture'
+source 'https://gem.fury.io/obsidian/' do
+  gem 'telemetry-logger'
+  gem 'runner'
+  gem 'fixture'
+end
 
 source 'https://rubygems.org'
 
