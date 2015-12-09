@@ -5,6 +5,9 @@ describe "Hash Keys and Values Converted to Camel Case" do
     hash = Casing::Controls::Hash.example
     camel_hash = Casing::Camel.(hash, convert_values: true)
 
+    __logger.info "\nCamel: Keys and Values\n- - -\n#{camel_hash.pretty_inspect}"
+    __logger.info "\nInput\n- - -\n#{hash.pretty_inspect}"
+
     Casing::Camel.assure(camel_hash, assure_values: true)
   end
 end
