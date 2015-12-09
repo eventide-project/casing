@@ -25,7 +25,7 @@ end
 
 describe "Hash Keys Converted to Camel Case" do
   it "Converts keys to camel case strings" do
-    hash = Fixtures.hash
+    hash = Casing::Controls::Hash.example
     camel_hash = Casing::Camel.(hash)
 
     AssertCamelKeys.(camel_hash)

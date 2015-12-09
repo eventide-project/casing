@@ -27,7 +27,7 @@ end
 
 describe "Hash Keys and Values Converted to Camel Case" do
   it "Converts keys and values to camelCase strings" do
-    hash = Fixtures.hash
+    hash = Casing::Controls::Hash.example
     camel_hash = Casing::Camel.(hash, convert_values: true)
 
     AssertCamel.(camel_hash)

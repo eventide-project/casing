@@ -1,0 +1,1 @@
+require 'casing/controls/hash'

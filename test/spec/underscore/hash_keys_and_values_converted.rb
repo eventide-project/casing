@@ -27,7 +27,7 @@ end
 
 describe "Hash Keys and Values Converted to Underscore Case" do
   it "Converts keys to underscore case strings" do
-    hash = Fixtures.hash
+    hash = Casing::Controls::Hash.example
     underscore_hash = Casing::Underscore.(hash, convert_values: true)
 
     AssertUnderscore.(underscore_hash)
