@@ -1,6 +1,6 @@
 require_relative '../spec_init'
 
-module AssertCamel
+module AssertCamelKeysAndValues
   def self.call(hash)
     camel_keys? hash
   end
@@ -30,6 +30,6 @@ describe "Hash Keys and Values Converted to Camel Case" do
     hash = Casing::Controls::Hash.example
     camel_hash = Casing::Camel.(hash, convert_values: true)
 
-    AssertCamel.(camel_hash)
+    AssertCamelKeysAndValues.(camel_hash)
   end
 end
