@@ -20,12 +20,14 @@ module Casing
     end
     class << self; alias :! :call; end # TODO: Remove deprecated actuator [Kelsey, Thu Oct 08 2015]
 
-    def self.assure(val)
+    def self.assure(val, assure_values: nil)
+      assure_values ||= false
+
       case val
         when ::Array
-          val.map { |v| assure(v) }
+          val.map { |v| assure(v, assure_values: assure_values) }
         when ::Hash
-          val.map { |k, v| camel_case?(k); assure(v) }
+          val.map { |k, v| camel_case?(k); assure(v, assure_values: assure_values) }
         else
           val
       end
