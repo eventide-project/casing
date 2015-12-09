@@ -2,15 +2,15 @@ require_relative '../spec_init'
 
 module AssertCamelKeysAndValues
   def self.call(hash)
-    camel_keys? hash
+    prove? hash
   end
 
-  def self.camel_keys?(val)
+  def self.prove?(val)
     case val
       when ::Array
-        val.map { |v| camel_keys?(v) }
+        val.map { |v| prove?(v) }
       when ::Hash
-        val.map { |k, v| camel_case?(k); camel_keys?(v) }
+        val.map { |k, v| camel_case?(k); prove?(v) }
       else
         camel_case?(val)
     end
