@@ -12,7 +12,7 @@ module AssertCamelKeys
       when ::Hash
         val.map { |k, v| camel_case?(k); camel_keys?(v) }
       else
-        true
+        val
     end
   end
 
