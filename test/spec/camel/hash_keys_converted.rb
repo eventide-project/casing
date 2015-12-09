@@ -30,6 +30,7 @@ describe "Hash Keys Converted to Camel Case" do
     hash = Casing::Controls::Hash.example
     camel_hash = Casing::Camel.(hash)
 
-    AssertCamelKeys.(camel_hash)
+    # AssertCamelKeys.(camel_hash)
+    Casing::Camel.assure(camel_hash)
   end
 end
