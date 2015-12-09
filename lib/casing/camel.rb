@@ -29,6 +29,7 @@ module Casing
         when ::Hash
           val.map { |k, v| camel_case?(k); assure(v, assure_values: assure_values) }
         else
+          # this needs to do value checking as well
           val
       end
     end

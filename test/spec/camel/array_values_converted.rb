@@ -1,15 +1,11 @@
 require_relative '../spec_init'
 
 describe "Array of Values Converted to Camel Case" do
-  values = [
-    'underscore_value',
-    'PascalValue',
-    'camelValue',
-    'Separate words',
-    'some words'
-  ]
-
+  values = Casing::Controls::Array.example
   camel_values = Casing::Camel.(values, convert_values: true)
+
+  __logger.data "\nCamel: Values\n- - -\n#{camel_values.pretty_inspect}"
+  __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"
 
   specify "Underscore case value is converted to camel case" do
     assert(camel_values[0] == 'underscoreValue')
