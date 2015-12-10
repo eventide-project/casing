@@ -7,9 +7,11 @@ describe "Array of Values not Converted to Camel Case" do
   __logger.data "\nCamel: Values\n- - -\n#{camel_values.pretty_inspect}"
   __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"
 
-  specify "Values remain unchanged" do
-    camel_values.each_with_index do |v, i|
-      assert(v == values[i])
+  context "Not Converted to Array of Camel Case Values" do
+    camel_values.each_with_index do |value, i|
+      specify value do
+        assert(value == values[i])
+      end
     end
   end
 end
