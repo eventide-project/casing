@@ -1,6 +1,6 @@
 require_relative '../spec_init'
 
-describe "Array of Values not Converted to Camel Case" do
+describe "Array of Values" do
   values = Casing::Controls::Array.example
   camel_values = Casing::Camel.(values, convert_values: false)
 
@@ -8,9 +8,11 @@ describe "Array of Values not Converted to Camel Case" do
   __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"
 
   context "Not Converted to Array of Camel Case Values" do
-    camel_values.each_with_index do |value, i|
-      specify value do
-        assert(value == values[i])
+    camel_values.each do |camel_value|
+      specify camel_value do
+        assert_raises Casing::Camel::Error do
+          Casing::Camel.assure(camel_value, assure_values: true)
+        end
       end
     end
   end

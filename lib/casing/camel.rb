@@ -1,5 +1,6 @@
 module Casing
   module Camel
+    class Error < RuntimeError; end
     def self.call(val, convert_values: nil)
       case val
         when ::Hash
@@ -40,7 +41,7 @@ module Casing
     def self.assure_camel_case(val)
       val.split.each do |v|
         unless v.match /^([a-z]+([A-Z][a-z]+)+)|[a-z]+/
-          raise "#{v} is not camel cased"
+          raise Error, "#{val} is not camel-cased"
         end
       end
     end
