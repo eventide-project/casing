@@ -2,26 +2,30 @@ require_relative '../spec_init'
 
 describe "String Converted to Camel Case" do
   it "Converts from under_score to camelCase" do
-    str = 'some_string'
+    str = Casing::Controls::String::Underscore.example
     converted = Casing::Camel.(str)
+
     assert(converted == 'someString')
   end
 
   it "Converts from PascalCase to camelCase" do
-    str = 'SomeString'
+    str = Casing::Controls::String::Pascal.example
     converted = Casing::Camel.(str)
+
     assert(converted == 'someString')
   end
 
   it "Converts symbols to strings" do
-    sym = :someString
+    sym = Casing::Controls::String::Symbol.example
     converted = Casing::Camel.(sym)
+
     assert(converted == 'someString')
   end
 
   it "Has no effect on camelCase" do
-    str = 'someString'
+    str = Casing::Controls::String::Camel.example
     converted = Casing::Camel.(str)
+
     assert(converted == 'someString')
   end
 end
