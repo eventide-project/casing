@@ -10,7 +10,7 @@ describe "Array of Values" do
   context "Not Converted to Array of Camel Case Values" do
     underscore_values.each do |underscore_value|
       specify underscore_value do
-        assert_raises Casing::Underscore::Error do
+        assert_raises Casing::Error do
           Casing::Underscore.assure(underscore_value, assure_values: true)
         end
       end

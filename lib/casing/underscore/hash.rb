@@ -1,5 +1,5 @@
 module Casing
-  module Underscore
+  class Underscore
     module Hash
       def self.call(val, convert_values: nil)
         convert_values = convert_values.nil? ? false : convert_values

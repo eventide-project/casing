@@ -1,5 +1,5 @@
 module Casing
-  module Camel
+  class Camel
     module Array
       def self.call(val, convert_values: nil)
         convert_values = convert_values.nil? ? false : convert_values

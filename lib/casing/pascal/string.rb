@@ -1,5 +1,5 @@
 module Casing
-  module Pascal
+  class Pascal
     module String
       def self.call(val, convert_values: nil)
         convert_values = convert_values.nil? ? true : convert_values
