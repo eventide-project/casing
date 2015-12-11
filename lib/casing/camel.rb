@@ -40,10 +40,14 @@ module Casing
 
     def self.assure_case(val)
       val.split.each do |v|
-        unless v =~ /^[a-z]/
+        unless case?(v)
           raise Error, "#{val} is not camel-cased"
         end
       end
+    end
+
+    def self.case?(val)
+      (val =~ /^[a-z]/) && !(val =~ /_/)
     end
   end
 end

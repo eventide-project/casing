@@ -10,6 +10,10 @@ module Casing
           'some words'
         ]
       end
+
+      def self.not_camel_case
+        example.delete_if { |e| Casing::Camel.case?(e) }
+      end
     end
   end
 end
