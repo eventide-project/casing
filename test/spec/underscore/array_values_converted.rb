@@ -1,33 +1,17 @@
 require_relative '../spec_init'
 
-describe "Array of Values Converted to Underscore Case" do
-  values = [
-    'underscore_value',
-    'PascalValue',
-    'camelValue',
-    'Separate words',
-    'some words'
-  ]
-
+describe "Array of Values" do
+  values = Casing::Controls::Array.example
   underscore_values = Casing::Underscore.(values, convert_values: true)
 
-  specify "Underscore case remains underscore cased" do
-    assert(underscore_values[0] == 'underscore_value')
-  end
+  __logger.data "\nUnderscore: Values\n- - -\n#{underscore_values.pretty_inspect}"
+  __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"
 
-  specify "Pascal case value is converted to underscore case" do
-    assert(underscore_values[1] == 'pascal_value')
-  end
-
-  specify "Camel case is converted to underscore case" do
-    assert(underscore_values[2] == 'camel_value')
-  end
-
-  specify "Separate words are converted to lower case" do
-    assert(underscore_values[3] == 'separate words')
-  end
-
-  specify "Lower case separate words remain lower case" do
-    assert(underscore_values[4] == 'some words')
+  context "Converted to Array of Underscore Case Values" do
+    underscore_values.each do |underscore_value|
+      specify underscore_value do
+        Casing::Underscore.assure(underscore_value, assure_values: true)
+      end
+    end
   end
 end
