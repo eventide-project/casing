@@ -1,6 +1,7 @@
 module Casing
   module Camel
     class Error < RuntimeError; end
+
     def self.call(val, convert_values: nil)
       case val
         when ::Hash
