@@ -35,13 +35,14 @@ module Casing
     nil
   end
 
-  def case?(val, assure_values: nil)
+  def case?(val, assure_values: nil, values: nil)
     assure_values ||= false
+    values ||= assure_values
 
     case val
       when ::Array
         val.each do |v|
-          assured = case?(v, assure_values: assure_values)
+          assured = case?(v, values: values)
           return false unless assured
         end
 
@@ -50,7 +51,7 @@ module Casing
           case_assured = value_cased?(k)
           return false unless case_assured
 
-          assured = case?(v, assure_values: assure_values)
+          assured = case?(v, values: values)
           return false unless assured
         end
 
