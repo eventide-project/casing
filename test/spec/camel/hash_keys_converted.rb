@@ -8,6 +8,8 @@ describe "Hash Keys Converted to Camel Case" do
     __logger.data "\nCamel: Keys\n- - -\n#{camel_hash.pretty_inspect}"
     __logger.data "\nInput\n- - -\n#{hash.pretty_inspect}"
 
-    Casing::Camel.assure(camel_hash)
+    assured = Casing::Camel.case?(camel_hash)
+
+    assert assured
   end
 end

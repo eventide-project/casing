@@ -2,7 +2,7 @@ module Casing
   class Camel
     extend Casing
 
-    def self.case?(val)
+    def self.match?(val)
       (val =~ /^[a-z]/) && !(val =~ /_/)
     end
   end

@@ -26,27 +26,50 @@ module Casing
   end
 
   def assure(val, assure_values: nil)
+    assured = case?(val, assure_values: assure_values)
+
+    unless assured
+      raise Casing::Error, "#{val} is not #{self.name.split('::').last.downcase}-cased"
+    end
+
+    nil
+  end
+
+  def case?(val, assure_values: nil)
     assure_values ||= false
 
     case val
       when ::Array
-        val.map { |v| assure(v, assure_values: assure_values) }
-      when ::Hash
-        val.map { |k, v| assure_case(k); assure(v, assure_values: assure_values) }
-      else
-        if assure_values
-          assure_case(val)
+        val.each do |v|
+          assured = case?(v, assure_values: assure_values)
+          return false unless assured
         end
 
-        val
+      when ::Hash
+        val.each do |k, v|
+          case_assured = value_cased?(k)
+          return false unless case_assured
+
+          assured = case?(v, assure_values: assure_values)
+          return false unless assured
+        end
+
+      else
+        if assure_values
+          case_assured = value_cased?(val)
+          return false unless case_assured
+        end
     end
+
+    true
   end
 
-  def assure_case(val)
+  def value_cased?(val)
     val.split.each do |v|
-      unless case?(v)
-        raise Casing::Error, "#{val} is not #{self.name.split('::').last.downcase}-cased"
-      end
+      assured = match?(v)
+      return false unless assured
     end
+
+    true
   end
 end
