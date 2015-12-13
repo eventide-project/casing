@@ -25,8 +25,8 @@ module Casing
     call(val, values: nil)
   end
 
-  def assure(val, assure_values: nil)
-    assured = case?(val, assure_values: assure_values)
+  def assure(val, values: nil)
+    assured = case?(val, values: values)
 
     unless assured
       raise Casing::Error, "#{val} is not #{self.name.split('::').last.downcase}-cased"
@@ -35,9 +35,8 @@ module Casing
     nil
   end
 
-  def case?(val, assure_values: nil, values: nil)
-    assure_values ||= false
-    values ||= assure_values
+  def case?(val, values: nil)
+    values ||= false
 
     case val
       when ::Array
@@ -56,7 +55,7 @@ module Casing
         end
 
       else
-        if assure_values
+        if values
           case_assured = value_cased?(val)
           return false unless case_assured
         end
