@@ -1,10 +1,10 @@
 module Casing
   class Camel
     module String
-      def self.call(val, convert_values: nil)
-        convert_values = convert_values.nil? ? true : convert_values
+      def self.call(val, values: nil)
+        values = values.nil? ? true : values
 
-        return val unless convert_values
+        return val unless values
 
         val
           .to_s

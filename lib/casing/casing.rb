@@ -1,19 +1,19 @@
 module Casing
   class Error < RuntimeError; end
 
-  def call(val, convert_values: nil)
+  def call(val, values: nil)
     case val
       when ::Hash
-        self::Hash.(val, convert_values: convert_values)
+        self::Hash.(val, values: values)
 
       when ::Array
-        self::Array.(val, convert_values: convert_values)
+        self::Array.(val, values: values)
 
       when ::String
-        self::String.(val, convert_values: convert_values)
+        self::String.(val, values: values)
 
       when ::Symbol
-        self::String.(val, convert_values: convert_values)
+        self::String.(val, values: values)
 
       else
         val
@@ -21,12 +21,12 @@ module Casing
   end
 
   # TODO: Remove deprecated actuator [Kelsey, Thu Oct 08 2015]
-  def !(val, convert_values: nil)
-    call(val, convert_values: nil)
+  def !(val, values: nil)
+    call(val, values: nil)
   end
 
-  def assure(val, assure_values: nil)
-    assured = case?(val, assure_values: assure_values)
+  def assure(val, values: nil)
+    assured = case?(val, values: values)
 
     unless assured
       raise Casing::Error, "#{val} is not #{self.name.split('::').last.downcase}-cased"
@@ -35,13 +35,13 @@ module Casing
     nil
   end
 
-  def case?(val, assure_values: nil)
-    assure_values ||= false
+  def case?(val, values: nil)
+    values ||= false
 
     case val
       when ::Array
         val.each do |v|
-          assured = case?(v, assure_values: assure_values)
+          assured = case?(v, values: values)
           return false unless assured
         end
 
@@ -50,12 +50,12 @@ module Casing
           case_assured = value_cased?(k)
           return false unless case_assured
 
-          assured = case?(v, assure_values: assure_values)
+          assured = case?(v, values: values)
           return false unless assured
         end
 
       else
-        if assure_values
+        if values
           case_assured = value_cased?(val)
           return false unless case_assured
         end

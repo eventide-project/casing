@@ -5,11 +5,23 @@ module Casing
         def self.example
           'some_string'
         end
+
+        module Contrary
+          def self.example
+            'SomeString'
+          end
+        end
       end
 
       module Pascal
         def self.example
           'SomeString'
+        end
+
+        module Contrary
+          def self.example
+            'someString'
+          end
         end
       end
 
@@ -17,11 +29,23 @@ module Casing
         def self.example
           'someString'
         end
+
+        module Contrary
+          def self.example
+            'SomeString'
+          end
+        end
       end
 
       module Symbol
         def self.example
           :someString
+        end
+
+        module Contrary
+          def self.example
+            'SomeString'
+          end
         end
       end
     end
