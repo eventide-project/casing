@@ -2,7 +2,7 @@ require_relative '../spec_init'
 
 describe "Array of Values" do
   values = Casing::Controls::Array.example
-  camel_values = Casing::Camel.(values, convert_values: true)
+  camel_values = Casing::Camel.(values, values: true)
 
   __logger.data "\nCamel: Values\n- - -\n#{camel_values.pretty_inspect}"
   __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"

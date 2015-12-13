@@ -2,7 +2,7 @@ require_relative '../spec_init'
 
 describe "Array of Values" do
   values = Casing::Controls::Array.not_underscore_case
-  underscore_values = Casing::Underscore.(values, convert_values: false)
+  underscore_values = Casing::Underscore.(values, values: false)
 
   __logger.data "\nUnderscore: Values\n- - -\n#{underscore_values.pretty_inspect}"
   __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"

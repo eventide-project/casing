@@ -2,7 +2,7 @@ require_relative '../spec_init'
 
 describe "Array of Values" do
   values = Casing::Controls::Array.not_camel_case
-  camel_values = Casing::Camel.(values, convert_values: false)
+  camel_values = Casing::Camel.(values, values: false)
 
   __logger.data "\nNot Camel: Values\n- - -\n#{camel_values.pretty_inspect}"
   __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"
