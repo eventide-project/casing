@@ -10,9 +10,7 @@ describe "Array of Values" do
   context "Not Converted to Array of Camel Case Values" do
     camel_values.each do |camel_value|
       specify camel_value do
-        assert_raises Casing::Error do
-          Casing::Camel.assure(camel_value, assure_values: true)
-        end
+        refute(Casing::Camel.case?(camel_value, assure_values: true))
       end
     end
   end

@@ -8,6 +8,6 @@ describe "Hash Keys Converted to Underscore Case" do
     __logger.data "\nUnderscore: Keys\n- - -\n#{underscore_hash.pretty_inspect}"
     __logger.data "\nInput\n- - -\n#{hash.pretty_inspect}"
 
-    Casing::Underscore.assure(underscore_hash)
+    assert(Casing::Underscore.case?(underscore_hash))
   end
 end

@@ -10,7 +10,7 @@ describe "Array of Values" do
   context "Converted to Array of Underscore Case Values" do
     underscore_values.each do |underscore_value|
       specify underscore_value do
-        Casing::Underscore.assure(underscore_value, assure_values: true)
+        assert(Casing::Underscore.case?(underscore_value, assure_values: true))
       end
     end
   end
