@@ -1,20 +1,24 @@
 require_relative 'spec_init'
 
-['Camel', 'Underscore'].each do |casing|
-  describe "Array of Values" do
-    control = "not_#{casing.downcase}_case"
-    values = Casing::Controls::Array.send control
+describe "Array" do
+  values = Casing::Controls::Array.example
+  __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"
 
-    converter = Casing.const_get(casing)
-    converted_values = converter.(values, values: false)
+  ['Camel', 'Underscore'].each do |casing|
+    describe "Array of Values" do
+      control = "not_#{casing.downcase}_case"
+      values = Casing::Controls::Array.send control
 
-    __logger.data "\n#{casing}: Values\n- - -\n#{converted_values.pretty_inspect}"
-    __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"
+      converter = Casing.const_get(casing)
+      converted_values = converter.(values, values: false)
 
-    context "Not Converted to Array of #{casing.downcase} Case Values" do
-      converted_values.each do |value|
-        specify value do
-          refute(converter.case?(value, values: true))
+      __logger.data "\n#{casing}: Values\n- - -\n#{converted_values.pretty_inspect}"
+
+      context "Not Converted to Array of #{casing.downcase} Case Values" do
+        converted_values.each do |value|
+          specify value do
+            refute(converter.case?(value, values: true))
+          end
         end
       end
     end
