@@ -1,44 +1,59 @@
 module Casing
   module Controls
     module Hash
-      # def self.example
-      #   {
-      #     symbol_key: 'symbol value',
-      #     'text_key' => 'text value',
-      #     camelKey: 'camel value',
-      #     :PascalKey => 'pascal value',
-      #     nested_hash: {
-      #       nested_symbol_key: 'nested symbol value',
-      #       'nested_text_key' => 'nested text value',
-      #       nestedCamelKey: 'nested camel value',
-      #       :NestedPascalKey => 'nested pascal value'
-      #     },
-      #     nested_array: [
-      #       { array_nested_hash_a: 'nested value a' },
-      #       { array_nested_hash_b: 'nested value b' }
-      #     ]
-      #   }
-      # end
-
       def self.example
-        {
-          symbol_key: :symbol_value,
-          'text_key' => 'text value',
-          camelKey: 'camelValue',
-          :PascalKey => 'pascal value',
-          nested_hash: {
-            nested_symbol_key: 'nested symbol value',
-            'nested_text_key' => 'nested text value',
-            nestedCamelKey: 'nested camel value',
-            :NestedPascalKey => 'nested pascal value'
-          },
-          nested_array: [
-            { array_nested_hash_a: 'nested value a' },
-            { array_nested_hash_b: 'nested value b' }
-          ]
-        }
+        hash = {}
+
+        hash.merge! Symbol.example
+        hash.merge! String.example
+        hash.merge! Nested::Hash.example
+        hash.merge! Nested::Array.example
+
+        hash
       end
 
+      module Symbol
+        def self.example
+          {
+            :underscore_symbol_key => :underscore_symbol_value,
+            :camelSymbolKey => :camelSymbolValue,
+            :PascalSymbolKey => :PascalSymbolValue
+          }
+        end
+      end
+
+      module String
+        def self.example
+          {
+            'underscore_string_key' => 'underscore_string_value',
+            'camelStringKey' => 'camelStringValue',
+            'PascalStringKey' => 'PascalStringValue'
+          }
+        end
+      end
+
+      module Nested
+        module Hash
+          def self.example
+            hash = {}
+            hash.merge! Symbol.example
+            hash.merge! String.example
+
+            { :nested_hash => hash }
+          end
+        end
+
+        module Array
+          def self.example
+            array = [
+              { :array_nested_hash_a => :array_nested_hash_value_a },
+              { :array_nested_hash_b => :array_nested_hash_value_b }
+            ]
+
+            { :nested_array => array }
+          end
+        end
+      end
     end
   end
 end

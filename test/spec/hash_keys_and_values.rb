@@ -10,7 +10,7 @@ describe "Hash Keys and Values" do
         converter = Casing.const_get(casing)
         camel_hash = converter.(hash, values: true)
 
-        __logger.data "\n#{casing}: Keys\n- - -\n#{camel_hash.pretty_inspect}"
+        __logger.data "\n#{casing}: Keys and Values\n- - -\n#{camel_hash.pretty_inspect}"
 
         assert(converter.case?(camel_hash, values: true))
       end
