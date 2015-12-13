@@ -12,11 +12,11 @@ module Casing
       end
 
       def self.not_camel_case
-        example.delete_if { |e| Casing::Camel.case?(e) }
+        example.delete_if { |e| Casing::Camel.match?(e) }
       end
 
       def self.not_underscore_case
-        example.delete_if { |e| Casing::Underscore.case?(e) }
+        example.delete_if { |e| Casing::Underscore.match?(e) }
       end
     end
   end

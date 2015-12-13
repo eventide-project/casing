@@ -5,27 +5,27 @@ describe "String Converted to Pascal Case" do
     str = Casing::Controls::String::Underscore.example
     converted = Casing::Pascal.(str)
 
-    assert(Casing::Pascal.case?(converted))
+    assert(Casing::Pascal.match?(converted))
   end
 
   it "Converts from camelCase to PascalCase" do
     str = Casing::Controls::String::Camel.example
     converted = Casing::Pascal.(str)
 
-    assert(Casing::Pascal.case?(converted))
+    assert(Casing::Pascal.match?(converted))
   end
 
   it "Converts symbols to strings" do
     sym = Casing::Controls::String::Symbol.example
     converted = Casing::Pascal.(sym)
 
-    assert(Casing::Pascal.case?(converted))
+    assert(Casing::Pascal.match?(converted))
   end
 
   it "Has no effect on PascalCase" do
     str = Casing::Controls::String::Underscore.example
     converted = Casing::Pascal.(str)
 
-    assert(Casing::Pascal.case?(converted))
+    assert(Casing::Pascal.match?(converted))
   end
 end
