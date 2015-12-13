@@ -2,20 +2,20 @@ require_relative 'spec_init'
 
 ['Camel', 'Underscore', 'Pascal'].each do |casing|
   describe "Match of #{casing} Casing" do
+    converter = Casing.const_get(casing)
+    control = Casing::Controls::String.const_get(casing)
+
     specify "#{casing} case string" do
-      control = Casing::Controls::String.const_get(casing)
       string = control.example
 
-      converter = Casing.const_get(casing)
       assert(converter.match?(string))
     end
 
     specify "Not #{casing} case string" do
-      control = Casing::Controls::String.const_get(casing).const_get('Contrary')
+      contrary_control = control.const_get('Contrary')
 
-      string = control.example
+      string = contrary_control.example
 
-      converter = Casing.const_get(casing)
       refute(converter.match?(string))
     end
   end
