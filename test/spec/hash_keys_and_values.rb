@@ -8,11 +8,11 @@ describe "Hash Keys and Values" do
     context "Convert to #{casing} Case" do
       specify "Converts keys to #{casing.downcase} case strings" do
         converter = Casing.const_get(casing)
-        converted_hash = converter.(hash, values: true)
+        converted_hash = converter.(hash, include_values: true)
 
         __logger.data "\n#{casing}: Keys and Values\n- - -\n#{converted_hash.pretty_inspect}"
 
-        assert(converter.case?(converted_hash, values: true))
+        assert(converter.case?(converted_hash, include_values: true))
       end
     end
   end

@@ -1,11 +1,11 @@
 module Casing
   class Underscore
     module String
-      def self.call(val, values: nil, convert_symbols: nil)
-        values = values.nil? ? true : values
+      def self.call(val, include_values: nil, convert_symbols: nil)
+        include_values = include_values.nil? ? true : include_values
         convert_symbols ||= false
 
-        return val unless values
+        return val unless include_values
 
         sym = val.is_a?(Symbol)
 

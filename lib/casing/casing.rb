@@ -1,19 +1,19 @@
 module Casing
   class Error < RuntimeError; end
 
-  def call(val, values: nil, convert_symbols: nil)
+  def call(val, include_values: nil, convert_symbols: nil)
     case val
       when ::Hash
-        self::Hash.(val, values: values, convert_symbols: convert_symbols)
+        self::Hash.(val, include_values: include_values, convert_symbols: convert_symbols)
 
       when ::Array
-        self::Array.(val, values: values, convert_symbols: convert_symbols)
+        self::Array.(val, include_values: include_values, convert_symbols: convert_symbols)
 
       when ::String
-        self::String.(val, values: values, convert_symbols: convert_symbols)
+        self::String.(val, include_values: include_values, convert_symbols: convert_symbols)
 
       when ::Symbol
-        self::String.(val, values: values, convert_symbols: convert_symbols)
+        self::String.(val, include_values: include_values, convert_symbols: convert_symbols)
 
       else
         val
@@ -21,18 +21,18 @@ module Casing
   end
 
   # TODO: Remove deprecated actuator [Kelsey, Thu Oct 08 2015]
-  def !(val, values: nil, convert_symbols: nil)
-    call(val, values: values, convert_symbols: convert_symbols)
+  def !(val, include_values: nil, convert_symbols: nil)
+    call(val, include_values: include_values, convert_symbols: convert_symbols)
   end
 
-  def case?(val, values: nil, converted_symbols: nil)
-    values ||= false
+  def case?(val, include_values: nil, converted_symbols: nil)
+    include_values ||= false
     converted_symbols ||= false
 
     case val
       when ::Array
         val.each do |v|
-          assured = case?(v, values: values, converted_symbols: converted_symbols)
+          assured = case?(v, include_values: include_values, converted_symbols: converted_symbols)
           return false unless assured
         end
 
@@ -41,12 +41,12 @@ module Casing
           case_assured = value_cased?(k, converted_symbols: converted_symbols)
           return false unless case_assured
 
-          assured = case?(v, values: values, converted_symbols: converted_symbols)
+          assured = case?(v, include_values: include_values, converted_symbols: converted_symbols)
           return false unless assured
         end
 
       else
-        if values
+        if include_values
           case_assured = value_cased?(val, converted_symbols: converted_symbols)
           return false unless case_assured
         end

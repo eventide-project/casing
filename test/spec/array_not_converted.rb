@@ -10,14 +10,14 @@ describe "Array" do
       values = Casing::Controls::Array.send control
 
       converter = Casing.const_get(casing)
-      converted_values = converter.(values, values: false)
+      converted_values = converter.(values, include_values: false)
 
       __logger.data "\n#{casing}: Values\n- - -\n#{converted_values.pretty_inspect}"
 
       context "Not Converted to Array of #{casing.downcase} Case Values" do
         converted_values.each do |value|
           specify value do
-            refute(converter.case?(value, values: true))
+            refute(converter.case?(value, include_values: true))
           end
         end
       end
