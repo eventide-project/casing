@@ -7,14 +7,14 @@ describe "Array" do
   ['Camel', 'Underscore'].each do |casing|
     describe "Array of Values" do
       converter = Casing.const_get(casing)
-      converted_values = converter.(values, values: true)
+      converted_values = converter.(values, include_values: true)
 
       __logger.data "\n#{casing}: Values\n- - -\n#{converted_values.pretty_inspect}"
 
       context "Converted to Array of #{casing} Case Values" do
         converted_values.each do |value|
           specify value do
-            assert(converter.case?(value, values: true))
+            assert(converter.case?(value, include_values: true))
           end
         end
       end

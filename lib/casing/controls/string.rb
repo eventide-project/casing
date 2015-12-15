@@ -39,7 +39,7 @@ module Casing
 
       module Symbol
         def self.example
-          :someString
+          :some_string
         end
 
         module Contrary

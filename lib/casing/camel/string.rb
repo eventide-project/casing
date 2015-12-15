@@ -1,11 +1,11 @@
 module Casing
   class Camel
     module String
-      def self.call(val, values: nil, preserve_symbols: nil)
-        values = values.nil? ? true : values
-        preserve_symbols ||= false
+      def self.call(val, include_values: nil, convert_symbols: nil)
+        include_values = include_values.nil? ? true : include_values
+        convert_symbols ||= false
 
-        return val unless values
+        return val unless include_values
 
         sym = val.is_a?(Symbol)
 
@@ -14,7 +14,7 @@ module Casing
           .chars.first.downcase +
             Pascal::String.(val)[1..-1]
 
-        if preserve_symbols && sym
+        if !convert_symbols && sym
           converted = converted.to_sym
         end
 
