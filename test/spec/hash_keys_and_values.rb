@@ -6,7 +6,7 @@ describe "Hash Keys and Values" do
 
   ['Camel', 'Underscore'].each do |casing|
     context "Convert to #{casing} Case" do
-      specify "Converts keys and values to #{casing.downcase} case strings" do
+      specify "Converts keys to #{casing.downcase} case strings" do
         converter = Casing.const_get(casing)
         converted_hash = converter.(hash, values: true)
 

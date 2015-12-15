@@ -1,19 +1,19 @@
 module Casing
   class Error < RuntimeError; end
 
-  def call(val, values: nil, preserve_symbols: nil)
+  def call(val, values: nil, convert_symbols: nil)
     case val
       when ::Hash
-        self::Hash.(val, values: values, preserve_symbols: preserve_symbols)
+        self::Hash.(val, values: values, convert_symbols: convert_symbols)
 
       when ::Array
-        self::Array.(val, values: values, preserve_symbols: preserve_symbols)
+        self::Array.(val, values: values, convert_symbols: convert_symbols)
 
       when ::String
-        self::String.(val, values: values, preserve_symbols: preserve_symbols)
+        self::String.(val, values: values, convert_symbols: convert_symbols)
 
       when ::Symbol
-        self::String.(val, values: values, preserve_symbols: preserve_symbols)
+        self::String.(val, values: values, convert_symbols: convert_symbols)
 
       else
         val
@@ -21,33 +21,33 @@ module Casing
   end
 
   # TODO: Remove deprecated actuator [Kelsey, Thu Oct 08 2015]
-  def !(val, values: nil, preserve_symbols: nil)
-    call(val, values: values, preserve_symbols: preserve_symbols)
+  def !(val, values: nil, convert_symbols: nil)
+    call(val, values: values, convert_symbols: convert_symbols)
   end
 
-  def case?(val, values: nil, symbols: nil)
+  def case?(val, values: nil, converted_symbols: nil)
     values ||= false
-    symbols ||= false
+    converted_symbols ||= false
 
     case val
       when ::Array
         val.each do |v|
-          assured = case?(v, values: values, symbols: symbols)
+          assured = case?(v, values: values, converted_symbols: converted_symbols)
           return false unless assured
         end
 
       when ::Hash
         val.each do |k, v|
-          case_assured = value_cased?(k, symbols: symbols)
+          case_assured = value_cased?(k, converted_symbols: converted_symbols)
           return false unless case_assured
 
-          assured = case?(v, values: values, symbols: symbols)
+          assured = case?(v, values: values, converted_symbols: converted_symbols)
           return false unless assured
         end
 
       else
         if values
-          case_assured = value_cased?(val, symbols: symbols)
+          case_assured = value_cased?(val, converted_symbols: converted_symbols)
           return false unless case_assured
         end
     end
@@ -55,10 +55,10 @@ module Casing
     true
   end
 
-  def value_cased?(val, symbols: nil)
-    symbols ||= false
+  def value_cased?(val, converted_symbols: nil)
+    converted_symbols ||= false
 
-    if symbols && !val.is_a?(Symbol)
+    if converted_symbols && val.is_a?(Symbol)
       return false
     end
 

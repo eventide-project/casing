@@ -1,9 +1,9 @@
 module Casing
   class Underscore
     module String
-      def self.call(val, values: nil, preserve_symbols: nil)
+      def self.call(val, values: nil, convert_symbols: nil)
         values = values.nil? ? true : values
-        preserve_symbols ||= false
+        convert_symbols ||= false
 
         return val unless values
 
@@ -17,7 +17,7 @@ module Casing
           .tr('-', '_')
           .downcase
 
-        if preserve_symbols && sym
+        if !convert_symbols && sym
           converted = converted.to_sym
         end
 
