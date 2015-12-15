@@ -32,23 +32,23 @@ module Casing
     case val
       when ::Array
         val.each do |v|
-          assured = case?(v, include_values: include_values, symbol_to_string: symbol_to_string)
-          return false unless assured
+          cased = case?(v, include_values: include_values, symbol_to_string: symbol_to_string)
+          return false unless cased
         end
 
       when ::Hash
         val.each do |k, v|
-          case_assured = value_cased?(k, symbol_to_string: symbol_to_string)
-          return false unless case_assured
+          value_cased = value_cased?(k, symbol_to_string: symbol_to_string)
+          return false unless value_cased
 
-          assured = case?(v, include_values: include_values, symbol_to_string: symbol_to_string)
-          return false unless assured
+          cased = case?(v, include_values: include_values, symbol_to_string: symbol_to_string)
+          return false unless cased
         end
 
       else
         if include_values
-          case_assured = value_cased?(val, symbol_to_string: symbol_to_string)
-          return false unless case_assured
+          value_cased = value_cased?(val, symbol_to_string: symbol_to_string)
+          return false unless value_cased
         end
     end
 
@@ -65,8 +65,8 @@ module Casing
     val = val.to_s
 
     val.split.each do |v|
-      assured = match?(v)
-      return false unless assured
+      cased = match?(v)
+      return false unless cased
     end
 
     true
