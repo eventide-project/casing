@@ -8,11 +8,11 @@ describe "Hash Keys" do
     ['Camel', 'Underscore'].each do |casing|
       specify "Converts keys to #{casing.downcase} case strings" do
         converter = Casing.const_get(casing)
-        converted_hash = converter.(hash, convert_symbols: true)
+        converted_hash = converter.(hash, symbol_to_string: true)
 
         __logger.data "\n#{casing}: Keys\n- - -\n#{converted_hash.pretty_inspect}"
 
-        assert(converter.case?(converted_hash, converted_symbols: true))
+        assert(converter.case?(converted_hash, symbol_to_string: true))
       end
     end
   end
