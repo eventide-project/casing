@@ -7,7 +7,8 @@ puts RUBY_DESCRIPTION
 require_relative '../init.rb'
 
 require 'pp'
-require 'runner'
+require 'test_bench'; TestBench.activate
+require 'telemetry/logger'
 require 'casing/controls'
 
 Telemetry::Logger::AdHoc.activate

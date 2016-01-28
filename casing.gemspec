@@ -15,8 +15,6 @@ Gem::Specification.new do |s|
   s.platform = Gem::Platform::RUBY
   s.required_ruby_version = '>= 2.2.3'
 
-  s.add_development_dependency 'minitest'
-  s.add_development_dependency 'minitest-spec-context'
-  s.add_development_dependency 'pry'
-  s.add_development_dependency 'runner'
+  s.add_development_dependency 'test_bench'
+  s.add_development_dependency 'telemetry-logger'
 end

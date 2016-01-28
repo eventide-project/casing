@@ -1,11 +1,11 @@
 require_relative 'spec_init'
 
-describe "Array" do
+context "Array" do
   values = Casing::Controls::Array.example
   __logger.data "\nInput\n- - -\n#{values.pretty_inspect}"
 
   ['Camel', 'Underscore'].each do |casing|
-    describe "Array of Values" do
+    context "Array of Values" do
       converter = Casing.const_get(casing)
       converted_values = converter.(values, include_values: true)
 
@@ -13,7 +13,7 @@ describe "Array" do
 
       context "Converted to Array of #{casing} Case Values" do
         converted_values.each do |value|
-          specify value do
+          test value do
             assert(converter.case?(value, include_values: true))
           end
         end

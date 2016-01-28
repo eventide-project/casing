@@ -1,12 +1,12 @@
 require_relative 'spec_init'
 
-describe "Hash Keys" do
+context "Hash Keys" do
   context "Symbol inputs" do
     hash = Casing::Controls::Hash::Symbol.example
     __logger.data "\nInput\n- - -\n#{hash.pretty_inspect}"
 
     ['Camel', 'Underscore'].each do |casing|
-      specify "Converts keys to #{casing.downcase} case strings" do
+      test "Converts keys to #{casing.downcase} case strings" do
         converter = Casing.const_get(casing)
         converted_hash = converter.(hash, symbol_to_string: true)
 
