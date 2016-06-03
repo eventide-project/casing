@@ -1,7 +1,6 @@
-require_relative 'spec_init'
+require_relative 'bench_init'
 
-# ['Camel', 'Underscore', 'Pascal'].each do |casing|
-['Camel'].each do |casing|
+['Camel', 'Underscore', 'Pascal'].each do |casing|
   context "String Converted to #{casing.downcase} Case" do
     converter = Casing.const_get(casing)
 
@@ -12,6 +11,7 @@ require_relative 'spec_init'
       __logger.data "Underscore to #{casing}: #{input.inspect} -> #{converted.inspect}"
 
       assert(converter.case?(converted))
+      assert(converted.is_a?(Symbol))
     end
 
     test "Converts from pascal case to #{casing.downcase} case" do
@@ -21,6 +21,7 @@ require_relative 'spec_init'
       __logger.data "Pascal to #{casing}: #{input.inspect} -> #{converted.inspect}"
 
       assert(converter.case?(converted))
+      assert(converted.is_a?(Symbol))
     end
 
     test "Converts from camel case to #{casing.downcase} case" do
@@ -30,6 +31,7 @@ require_relative 'spec_init'
       __logger.data "Camel to #{casing}: #{input.inspect} -> #{converted.inspect}"
 
       assert(converter.case?(converted))
+      assert(converted.is_a?(Symbol))
     end
   end
 end

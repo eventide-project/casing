@@ -1,4 +1,4 @@
-require_relative 'spec_init'
+require_relative 'bench_init'
 
 ['Camel', 'Underscore', 'Pascal'].each do |casing|
   context "String not Converted to #{casing.downcase} Case" do
