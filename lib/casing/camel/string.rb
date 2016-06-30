@@ -6,6 +6,7 @@ module Casing
         symbol_to_string ||= false
 
         return val unless include_values
+        return val if val.length == 0
 
         sym = val.is_a?(Symbol)
 
