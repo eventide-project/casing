@@ -1,7 +1,6 @@
 require_relative 'bench_init'
 
-# ['Camel', 'Underscore', 'Pascal'].each do |casing|
-['Camel'].each do |casing|
+['Camel', 'Underscore', 'Pascal'].each do |casing|
   context "String Converted to #{casing.downcase} Case" do
     converter = Casing.const_get(casing)
 
