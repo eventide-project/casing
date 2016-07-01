@@ -31,5 +31,13 @@ require_relative 'bench_init'
 
       assert(converter.case?(converted))
     end
+
+    context "Receives an empty string" do
+      converted = converter.('')
+
+      test "Returns an empty string" do
+        assert(converted == '')
+      end
+    end
   end
 end
