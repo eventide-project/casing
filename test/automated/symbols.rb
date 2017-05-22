@@ -8,35 +8,24 @@ require_relative 'bench_init'
       input = Casing::Controls::String::Underscore.example.to_sym
       converted = converter.(input)
 
-      __logger.data "Underscore to #{casing}: #{input.inspect} -> #{converted.inspect}"
-
       assert(converter.case?(converted))
+      assert(converted.is_a?(Symbol))
     end
 
     test "Converts from pascal case to #{casing.downcase} case" do
       input = Casing::Controls::String::Pascal.example.to_sym
       converted = converter.(input)
 
-      __logger.data "Pascal to #{casing}: #{input.inspect} -> #{converted.inspect}"
-
       assert(converter.case?(converted))
+      assert(converted.is_a?(Symbol))
     end
 
     test "Converts from camel case to #{casing.downcase} case" do
       input = Casing::Controls::String::Camel.example.to_sym
       converted = converter.(input)
 
-      __logger.data "Camel to #{casing}: #{input.inspect} -> #{converted.inspect}"
-
       assert(converter.case?(converted))
-    end
-
-    context "Receives an empty string" do
-      converted = converter.('')
-
-      test "Returns an empty string" do
-        assert(converted == '')
-      end
+      assert(converted.is_a?(Symbol))
     end
   end
 end
