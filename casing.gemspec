@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 Gem::Specification.new do |s|
   s.name = 'evt-casing'
-  s.version = '0.3.0.3'
+  s.version = '1.0.0.0'
   s.summary = 'Convert the case of strings, symbols, and hash keys, including camelCase, PascalCase, and underscore_case'
   s.description = ' '
 
