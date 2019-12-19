@@ -8,10 +8,10 @@ module Casing
         return val unless include_values
         return val if val.length == 0
 
-##
+
         cached_val = cache[val]
         return cached_val if not cached_val.nil?
-##
+
 
 
         sym = val.is_a?(Symbol)
@@ -25,17 +25,18 @@ module Casing
           converted = converted.to_sym
         end
 
-##
+
         cache[val] = converted
-##
+
 
         converted
       end
       class << self; alias :! :call; end # TODO: Remove deprecated actuator [Kelsey, Thu Oct 08 2015]
-    end
 
-    def self.cache
-      @cache ||= Hash.new
+      def self.cache
+        @cache ||= ::Hash.new
+      end
+
     end
   end
 end
