@@ -33,18 +33,18 @@ module Casing
 
       def self.cache(symbol_to_string)
         if symbol_to_string
-          return string_cache
+          return symbol_to_string_cache
         else
-          return symbol_cache
+          return raw_cache
         end
       end
 
-      def self.string_cache
-        @string_cache ||= ::Hash.new
+      def self.symbol_to_string_cache
+        @symbol_to_string_cache ||= ::Hash.new
       end
 
-      def self.symbol_cache
-        @symbol_cache ||= ::Hash.new
+      def self.raw_cache
+        @raw_cache ||= ::Hash.new
       end
     end
   end
