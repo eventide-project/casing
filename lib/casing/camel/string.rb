@@ -9,7 +9,8 @@ module Casing
         return val if val.length == 0
 
 
-        cached_val = cache[val]
+
+        cached_val = cache(symbol_to_string)[val]
         return cached_val if not cached_val.nil?
 
 
@@ -26,17 +27,29 @@ module Casing
         end
 
 
-        cache[val] = converted
+        cache(symbol_to_string)[val] = converted
 
 
         converted
       end
       class << self; alias :! :call; end # TODO: Remove deprecated actuator [Kelsey, Thu Oct 08 2015]
 
-      def self.cache
-        @cache ||= ::Hash.new
+
+      def self.cache(symbol_to_string)
+        if symbol_to_string
+          return string_cache
+        else
+          return symbol_cache
+        end
       end
 
+      def self.string_cache
+        @string_cache ||= ::Hash.new
+      end
+
+      def self.symbol_cache
+        @symbol_cache ||= ::Hash.new
+      end
     end
   end
 end
