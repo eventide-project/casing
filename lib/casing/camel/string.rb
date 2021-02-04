@@ -10,8 +10,9 @@ module Casing
 
         sym = val.is_a?(Symbol)
 
+        val = val.to_s
+
         converted = val
-          .to_s
           .chars.first.downcase +
             Pascal::String.(val)[1..-1]
 
