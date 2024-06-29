@@ -20,11 +20,6 @@ module Casing
     end
   end
 
-  # TODO: Remove deprecated actuator [Kelsey, Thu Oct 08 2015]
-  def !(val, include_values: nil, symbol_to_string: nil)
-    call(val, include_values: include_values, symbol_to_string: symbol_to_string)
-  end
-
   def case?(val, include_values: nil, symbol_to_string: nil)
     include_values ||= false
     symbol_to_string ||= false
