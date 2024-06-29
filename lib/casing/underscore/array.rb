@@ -9,7 +9,6 @@ module Casing
           Casing::Underscore.(v, include_values: include_values, symbol_to_string: symbol_to_string)
         end
       end
-      class << self; alias :! :call; end # TODO: Remove deprecated actuator [Kelsey, Thu Oct 08 2015]
     end
   end
 end
