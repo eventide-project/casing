@@ -1,4 +1,4 @@
-require_relative 'bench_init'
+require_relative 'automated_init'
 
 ['Camel', 'Underscore', 'Pascal'].each do |casing|
   context "String Converted to #{casing.downcase} Case" do

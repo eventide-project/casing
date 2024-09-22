@@ -1,4 +1,4 @@
-require_relative 'bench_init'
+require_relative 'automated_init'
 
 context "Array" do
   values = Casing::Controls::Array.example

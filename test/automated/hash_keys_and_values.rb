@@ -1,4 +1,4 @@
-require_relative 'bench_init'
+require_relative 'automated_init'
 
 context "Hash Keys and Values" do
   hash = Casing::Controls::Hash.example
