@@ -1,6 +1,6 @@
-require_relative 'automated_init'
+require_relative "automated_init"
 
-['Camel', 'Underscore', 'Pascal'].each do |casing|
+["Camel", "Underscore", "Pascal"].each do |casing|
   context "String Converted to #{casing.downcase} Case" do
     converter = Casing.const_get(casing)
 
@@ -26,10 +26,10 @@ require_relative 'automated_init'
     end
 
     context "Receives an empty string" do
-      converted = converter.('')
+      converted = converter.("")
 
       test "Returns an empty string" do
-        assert(converted == '')
+        assert(converted == "")
       end
     end
   end

@@ -1,6 +1,6 @@
-require_relative 'automated_init'
+require_relative "automated_init"
 
-['Camel', 'Underscore', 'Pascal'].each do |casing|
+["Camel", "Underscore", "Pascal"].each do |casing|
   context "Match of #{casing} Casing" do
     converter = Casing.const_get(casing)
     control = Casing::Controls::String.const_get(casing)
@@ -12,7 +12,7 @@ require_relative 'automated_init'
     end
 
     test "Not #{casing} case string" do
-      contrary_control = control.const_get('Contrary')
+      contrary_control = control.const_get("Contrary")
 
       string = contrary_control.example
 

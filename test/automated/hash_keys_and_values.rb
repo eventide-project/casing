@@ -1,9 +1,9 @@
-require_relative 'automated_init'
+require_relative "automated_init"
 
 context "Hash Keys and Values" do
   hash = Casing::Controls::Hash.example
 
-  ['Camel', 'Underscore'].each do |casing|
+  ["Camel", "Underscore"].each do |casing|
     context "Convert to #{casing} Case" do
       test "Converts keys to #{casing.downcase} case strings" do
         converter = Casing.const_get(casing)

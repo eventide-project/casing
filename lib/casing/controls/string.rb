@@ -3,36 +3,36 @@ module Casing
     module String
       module Underscore
         def self.example
-          'some_string'
+          "some_string"
         end
 
         module Contrary
           def self.example
-            'SomeString'
+            "SomeString"
           end
         end
       end
 
       module Pascal
         def self.example
-          'SomeString'
+          "SomeString"
         end
 
         module Contrary
           def self.example
-            'someString'
+            "someString"
           end
         end
       end
 
       module Camel
         def self.example
-          'someString'
+          "someString"
         end
 
         module Contrary
           def self.example
-            'SomeString'
+            "SomeString"
           end
         end
       end
@@ -44,7 +44,7 @@ module Casing
 
         module Contrary
           def self.example
-            'SomeString'
+            "SomeString"
           end
         end
       end

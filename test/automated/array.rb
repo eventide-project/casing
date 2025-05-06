@@ -1,9 +1,9 @@
-require_relative 'automated_init'
+require_relative "automated_init"
 
 context "Array" do
   values = Casing::Controls::Array.example
 
-  ['Camel', 'Underscore'].each do |casing|
+  ["Camel", "Underscore"].each do |casing|
     context "Array of Values" do
       converter = Casing.const_get(casing)
       converted_values = converter.(values, include_values: true)

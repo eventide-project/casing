@@ -1,6 +1,6 @@
-require_relative 'automated_init'
+require_relative "automated_init"
 
-['Camel', 'Underscore', 'Pascal'].each do |casing|
+["Camel", "Underscore", "Pascal"].each do |casing|
   context "String not Converted to #{casing.downcase} Case" do
     converter = Casing.const_get(casing)
 

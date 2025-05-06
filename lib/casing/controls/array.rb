@@ -3,11 +3,11 @@ module Casing
     module Array
       def self.example
         [
-          'underscore_value',
-          'PascalValue',
-          'camelValue',
-          'Separate words',
-          'some words'
+          "underscore_value",
+          "PascalValue",
+          "camelValue",
+          "Separate words",
+          "some words"
         ]
       end
 

@@ -25,9 +25,9 @@ module Casing
       module String
         def self.example
           {
-            'underscore_string_key' => 'underscore_string_value',
-            'camelStringKey' => 'camelStringValue',
-            'PascalStringKey' => 'PascalStringValue'
+            "underscore_string_key" => "underscore_string_value",
+            "camelStringKey" => "camelStringValue",
+            "PascalStringKey" => "PascalStringValue"
           }
         end
       end

@@ -1,9 +1,9 @@
-require_relative 'automated_init'
+require_relative "automated_init"
 
 context "Array" do
   values = Casing::Controls::Array.example
 
-  ['Camel', 'Underscore'].each do |casing|
+  ["Camel", "Underscore"].each do |casing|
     context "Array of Values" do
       control = "not_#{casing.downcase}_case"
       values = Casing::Controls::Array.send control
